@@ -1,0 +1,401 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #050505;
+}
+
+body {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.intro {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at center,
+      #111111 0%,
+      #080808 42%,
+      #030303 100%
+    );
+  color: #ffffff;
+}
+
+/* -------------------------
+   PARTICLES
+------------------------- */
+
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+
+  width: 2px;
+  height: 2px;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+
+  animation:
+    particleFloat var(--duration) ease-in-out var(--delay)
+    infinite alternate;
+
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.35);
+}
+
+@keyframes particleFloat {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.15;
+  }
+
+  to {
+    transform: translate3d(
+      calc((var(--x) - 50%) * 0.08),
+      -25px,
+      0
+    );
+    opacity: 0.8;
+  }
+}
+
+/* -------------------------
+   COMMON SCREENS
+------------------------- */
+
+.intro-screen,
+.brand-screen,
+.apex-screen,
+.ready-screen {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 2;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.subtext {
+  margin: 12px 0 0;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+/* -------------------------
+   RAZORPAY
+------------------------- */
+
+.razorpay-text {
+  margin: 0;
+
+  font-size: clamp(48px, 8vw, 92px);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+
+  color: #ffffff;
+}
+
+/* -------------------------
+   STARDUST
+------------------------- */
+
+.stardust-symbol {
+  margin-bottom: 24px;
+
+  font-size: 42px;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 60px rgba(255, 255, 255, 0.12);
+}
+
+.stardust-title {
+  margin: 0;
+
+  font-size: clamp(58px, 10vw, 130px);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+
+  transform: translateX(0.08em);
+
+  color: #ffffff;
+}
+
+/* -------------------------
+   APEX CORE
+------------------------- */
+
+.apex-core {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 190px;
+  height: 190px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #ffffff 0%,
+      #bcbcbc 5%,
+      #292929 32%,
+      #090909 70%,
+      #000000 100%
+    );
+
+  box-shadow:
+    0 0 30px rgba(255, 255, 255, 0.12),
+    0 0 80px rgba(255, 255, 255, 0.08),
+    inset 0 0 35px rgba(255, 255, 255, 0.1);
+
+  animation: apexPulse 3s ease-in-out infinite;
+}
+
+.apex-core::before {
+  content: "";
+
+  position: absolute;
+  inset: -14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 50%;
+
+  animation: orbit 8s linear infinite;
+}
+
+.apex-core::after {
+  content: "";
+
+  position: absolute;
+  inset: -32px;
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  border-radius: 50%;
+
+  animation: orbitReverse 12s linear infinite;
+}
+
+.core-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+  z-index: 2;
+}
+
+.core-inner span {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+
+  transform: translateX(0.12em);
+}
+
+.core-inner strong {
+  margin-top: 3px;
+
+  font-size: 27px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+}
+
+@keyframes apexPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 30px rgba(255, 255, 255, 0.12),
+      0 0 80px rgba(255, 255, 255, 0.08),
+      inset 0 0 35px rgba(255, 255, 255, 0.1);
+  }
+
+  50% {
+    box-shadow:
+      0 0 45px rgba(255, 255, 255, 0.2),
+      0 0 110px rgba(255, 255, 255, 0.12),
+      inset 0 0 45px rgba(255, 255, 255, 0.16);
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.apex-title {
+  margin: 52px 0 0;
+
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+
+  transform: translateX(0.09em);
+}
+
+/* -------------------------
+   READY SCREEN
+------------------------- */
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  margin-bottom: 18px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 25px rgba(255, 255, 255, 0.3);
+
+  animation: statusPulse 1.5s ease-in-out infinite;
+}
+
+.ready-label {
+  margin: 0 0 12px;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ready-screen h1 {
+  margin: 0;
+
+  font-size: clamp(38px, 6vw, 72px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+/* -------------------------
+   ENTER BUTTON
+------------------------- */
+
+.enter-button {
+  margin-top: 42px;
+
+  padding: 14px 25px;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.enter-button:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* -------------------------
+   VERSION
+------------------------- */
+
+.version {
+  position: absolute;
+
+  bottom: 24px;
+  left: 28px;
+
+  z-index: 5;
+
+  font-size: 9px;
+  letter-spacing: 0.2em;
+
+  color: rgba(255, 255, 255, 0.2);
+}

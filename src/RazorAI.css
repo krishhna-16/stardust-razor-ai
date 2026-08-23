@@ -1,0 +1,776 @@
+/* =========================================
+   RAZOR AI — STARDUST
+   ========================================= */
+
+.razor-ai-floating {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 12px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+
+  background: rgba(15, 18, 28, 0.88);
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(18px);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.razor-ai-floating:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.35);
+
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.razor-ai-logo,
+.razor-ai-sparkle {
+  font-size: 17px;
+  line-height: 1;
+
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.8),
+    0 0 18px rgba(255, 255, 255, 0.3);
+}
+
+.razor-ai-intro {
+  position: fixed;
+  right: 24px;
+  bottom: 82px;
+  z-index: 9998;
+
+  width: 280px;
+
+  padding: 17px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+
+  background: rgba(12, 15, 24, 0.94);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(20px);
+
+  animation: razorIntroIn 0.45s ease;
+}
+
+.razor-ai-intro::after {
+  content: "";
+
+  position: absolute;
+
+  right: 30px;
+  bottom: -7px;
+
+  width: 13px;
+  height: 13px;
+
+  background: rgba(12, 15, 24, 0.94);
+
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+  transform: rotate(45deg);
+}
+
+.razor-ai-intro-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.razor-ai-intro-text {
+  margin-top: 8px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.razor-ai-intro button {
+  margin-top: 12px;
+
+  border: 0;
+  background: transparent;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.razor-ai-intro button:hover {
+  opacity: 0.7;
+}
+
+/* =========================================
+   PANEL
+   ========================================= */
+
+.razor-ai-panel {
+  position: fixed;
+
+  right: 24px;
+  bottom: 82px;
+
+  z-index: 10000;
+
+  width: 390px;
+  max-width: calc(100vw - 32px);
+  height: 600px;
+  max-height: calc(100vh - 110px);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(22, 25, 38, 0.97),
+      rgba(9, 12, 20, 0.97)
+    );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: blur(25px);
+
+  animation: razorPanelIn 0.3s ease;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.razor-ai-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 18px 14px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.razor-ai-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.razor-ai-subtitle {
+  margin-top: 4px;
+
+  color: rgba(255, 255, 255, 0.48);
+
+  font-size: 10px;
+}
+
+.razor-ai-close {
+  width: 30px;
+  height: 30px;
+
+  border: 0;
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.razor-ai-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* =========================================
+   DEMO BADGE
+   ========================================= */
+
+.razor-ai-demo-badge {
+  align-self: flex-start;
+
+  margin: 12px 18px 0;
+  padding: 5px 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   CONTENT
+   ========================================= */
+
+.razor-ai-content {
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 18px;
+
+  scrollbar-width: thin;
+}
+
+.razor-ai-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.razor-ai-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+}
+
+/* =========================================
+   WELCOME
+   ========================================= */
+
+.razor-ai-welcome {
+  text-align: center;
+
+  padding: 10px 5px 18px;
+}
+
+.razor-ai-big-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  margin: 0 auto 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  font-size: 26px;
+
+  text-shadow:
+    0 0 12px rgba(255, 255, 255, 0.8),
+    0 0 25px rgba(255, 255, 255, 0.25);
+}
+
+.razor-ai-welcome h3 {
+  margin: 0;
+
+  font-size: 16px;
+}
+
+.razor-ai-welcome p {
+  margin: 7px 0 0;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* =========================================
+   QUESTION OPTIONS
+   ========================================= */
+
+.razor-ai-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.razor-ai-option {
+  display: grid;
+  grid-template-columns: 30px 1fr 18px;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+
+  padding: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  color: #ffffff;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.razor-ai-option:hover {
+  transform: translateX(2px);
+
+  border-color: rgba(255, 255, 255, 0.22);
+
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.razor-ai-option-number {
+  color: rgba(255, 255, 255, 0.35);
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.razor-ai-option strong {
+  display: block;
+
+  font-size: 12px;
+}
+
+.razor-ai-option small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 9px;
+}
+
+.razor-ai-arrow {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* =========================================
+   MESSAGES
+   ========================================= */
+
+.razor-ai-message {
+  max-width: 88%;
+
+  margin-bottom: 10px;
+  padding: 11px 13px;
+
+  border-radius: 13px;
+
+  font-size: 11px;
+  line-height: 1.55;
+
+  animation: razorMessageIn 0.25s ease;
+}
+
+.razor-ai-message.user {
+  margin-left: auto;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  color: #ffffff;
+
+  border-bottom-right-radius: 4px;
+}
+
+.razor-ai-message.assistant {
+  margin-right: auto;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  color: rgba(255, 255, 255, 0.78);
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-bottom-left-radius: 4px;
+}
+
+.razor-ai-message-logo {
+  margin-right: 7px;
+
+  color: #ffffff;
+
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================
+   OTHER QUESTIONS
+   ========================================= */
+
+.razor-ai-other {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 9px;
+}
+
+.razor-ai-other button {
+  border: 0;
+
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 10px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+/* =========================================
+   INPUT
+   ========================================= */
+
+.razor-ai-input {
+  display: flex;
+  gap: 7px;
+
+  padding: 12px 14px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.razor-ai-input input {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 10px 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  color: #ffffff;
+
+  font-size: 11px;
+}
+
+.razor-ai-input input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.razor-ai-input input:focus {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.razor-ai-input button {
+  width: 38px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: #ffffff;
+
+  cursor: pointer;
+}
+
+.razor-ai-input button:disabled {
+  opacity: 0.3;
+
+  cursor: not-allowed;
+}
+
+/* =========================================
+   DISCLAIMER
+   ========================================= */
+
+.razor-ai-disclaimer-panel {
+  height: auto;
+  min-height: 430px;
+}
+
+.razor-ai-disclaimer {
+  padding: 28px 24px;
+
+  text-align: center;
+}
+
+.razor-ai-disclaimer h3 {
+  margin: 0 0 12px;
+
+  font-size: 17px;
+}
+
+.razor-ai-disclaimer p {
+  margin: 9px 0;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.razor-ai-demo-note {
+  color: rgba(255, 255, 255, 0.35) !important;
+
+  font-size: 9px !important;
+}
+
+/* =========================================
+   PRIMARY BUTTON
+   ========================================= */
+
+.razor-ai-primary {
+  width: 100%;
+
+  margin-top: 15px;
+
+  padding: 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.09);
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.razor-ai-primary:hover {
+  background: rgba(255, 255, 255, 0.14);
+
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   SUPPORT
+   ========================================= */
+
+.razor-ai-support {
+  animation: razorMessageIn 0.25s ease;
+}
+
+.razor-ai-support h3 {
+  margin: 15px 0 7px;
+
+  font-size: 16px;
+}
+
+.razor-ai-support p {
+  color: rgba(255, 255, 255, 0.48);
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.razor-ai-support textarea {
+  width: 100%;
+  min-height: 120px;
+
+  box-sizing: border-box;
+
+  margin-top: 12px;
+  padding: 11px;
+
+  resize: vertical;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 11px;
+}
+
+.razor-ai-support textarea:focus {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.razor-ai-support textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.razor-ai-back {
+  border: 0;
+
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 10px;
+
+  cursor: pointer;
+}
+
+.razor-ai-support-success {
+  padding: 35px 10px;
+
+  text-align: center;
+}
+
+.razor-ai-success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  margin: 0 auto 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  font-size: 20px;
+}
+
+.razor-ai-support-success h3 {
+  margin: 0 0 8px;
+}
+
+.razor-ai-support-success p {
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes razorIntroIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes razorPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes razorMessageIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 600px) {
+  .razor-ai-floating {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .razor-ai-intro {
+    right: 16px;
+    bottom: 72px;
+
+    width: min(280px, calc(100vw - 32px));
+  }
+
+  .razor-ai-panel {
+    right: 12px;
+    bottom: 72px;
+
+    width: calc(100vw - 24px);
+
+    height: min(600px, calc(100vh - 88px));
+
+    border-radius: 17px;
+  }
+}
