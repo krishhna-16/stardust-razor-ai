@@ -34,7 +34,7 @@ const questions = [
   }
 ];
 
-export default function RazorAI() {
+export default function RazorAI({ stats, metrics }) {
   const [open, setOpen] = useState(false);
   const [accepted, setAccepted] = useState(false);
   const [messages, setMessages] = useState([]);
@@ -48,7 +48,6 @@ export default function RazorAI() {
 
     if (!question) return;
 
-    // Show user's question
     setMessages((prev) => [
       ...prev,
       { type: "user", text: question },
@@ -66,10 +65,11 @@ export default function RazorAI() {
         body: JSON.stringify({
           message: question,
           context: {
-            activeCases: 9,
-            recoveryRate: "34.7%",
-            recoveredRevenue: "₹4.6L",
-            revenueAtRisk: "₹9.1L"
+            activeCases: stats?.activeCases ?? 0,
+            escalatedCases: metrics?.global?.escalatedCases ?? 0,
+            recoveryRate: stats?.recoveryRate ?? "0%",
+            recoveredRevenue: stats?.recovered ?? "₹0.0L",
+            revenueAtRisk: stats?.revenueAtRisk ?? "₹0.0L"
           }
         })
       });
@@ -232,7 +232,6 @@ export default function RazorAI() {
           </div>
 
           <div className="razor-ai-content">
-
             {messages.length === 0 && !supportOpen && (
               <>
                 <div className="razor-ai-welcome">
@@ -300,7 +299,6 @@ export default function RazorAI() {
 
             {supportOpen && (
               <div className="razor-ai-support">
-
                 {!supportSent ? (
                   <>
                     <button
@@ -340,7 +338,6 @@ export default function RazorAI() {
                   </>
                 ) : (
                   <div className="razor-ai-support-success">
-
                     <div className="razor-ai-success-icon">
                       ✓
                     </div>
@@ -358,13 +355,10 @@ export default function RazorAI() {
                       In a production deployment, this request can be routed
                       to the connected support service.
                     </p>
-
                   </div>
                 )}
-
               </div>
             )}
-
           </div>
 
           {!supportOpen && (
@@ -382,7 +376,6 @@ export default function RazorAI() {
               </div>
 
               <div className="razor-ai-input">
-
                 <input
                   value={input}
                   onChange={(e) =>
@@ -406,11 +399,9 @@ export default function RazorAI() {
                 >
                   →
                 </button>
-
               </div>
             </>
           )}
-
         </div>
       )}
     </>

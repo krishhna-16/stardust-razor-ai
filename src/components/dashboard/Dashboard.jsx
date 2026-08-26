@@ -536,7 +536,7 @@ function Dashboard({ onLogout }) {
       </AnimatePresence>
 
       {/* Razor AI Assistant — available across all dashboard tabs */}
-      <RazorAI />
+   <RazorAI stats={stats} metrics={metrics} />
 
       {/* Toast Notification HUD Overlay */}
       <div style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 11000, display: 'flex', flexDirection: 'column', gap: '10px' }}>
