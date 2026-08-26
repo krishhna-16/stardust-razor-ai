@@ -43,7 +43,10 @@ export const processEvent = (event, previousAttempts = 0, currentStatus = "") =>
       ...decision,
       caseId: event.caseId,
       statusHistory: event.statusHistory,
-      stoppingRules: safetyCheck,
+      stoppingRules: {
+        ...safetyCheck,
+        previousAttempts: safetyCheck.shouldStop ? previousAttempts : previousAttempts + 1
+      },
       intervention: interventionReport,
       recovery: recoveryOutcome,
       status: finalStatus,

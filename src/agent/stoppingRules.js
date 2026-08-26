@@ -17,6 +17,7 @@ export const checkStoppingRules = (event, decision, previousAttempts = 0, curren
     return {
       shouldStop: true,
       reason: "Invalid event payload format",
+      previousAttempts,
     };
   }
 
@@ -24,6 +25,7 @@ export const checkStoppingRules = (event, decision, previousAttempts = 0, curren
     return {
       shouldStop: true,
       reason: "Invalid or missing recovery decision",
+      previousAttempts,
     };
   }
 
@@ -34,6 +36,7 @@ export const checkStoppingRules = (event, decision, previousAttempts = 0, curren
     return {
       shouldStop: true,
       reason: "Payment is already recovered",
+      previousAttempts,
     };
   }
 
@@ -42,6 +45,7 @@ export const checkStoppingRules = (event, decision, previousAttempts = 0, curren
     return {
       shouldStop: true,
       reason: "Case is closed and finalized",
+      previousAttempts,
     };
   }
 
@@ -50,6 +54,7 @@ export const checkStoppingRules = (event, decision, previousAttempts = 0, curren
     return {
       shouldStop: true,
       reason: "Maximum retry attempts exceeded (limit 3)",
+      previousAttempts,
     };
   }
 
@@ -64,6 +69,7 @@ export const checkStoppingRules = (event, decision, previousAttempts = 0, curren
     return {
       shouldStop: true,
       reason: "Case is escalated to manual account management",
+      previousAttempts,
     };
   }
 
@@ -71,5 +77,6 @@ export const checkStoppingRules = (event, decision, previousAttempts = 0, curren
   return {
     shouldStop: false,
     reason: "Safe for automated execution",
+    previousAttempts,
   };
 };
